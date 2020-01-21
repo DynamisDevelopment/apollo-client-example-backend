@@ -14,6 +14,9 @@ const Mutation = {
     },
     async deletePost(parent, args, { prisma }, info) {
         return prisma.mutation.deletePost({ where: { id: args.id } }, info)
+    },
+    async clearPosts(parent, args, { prisma }, info) {
+        return prisma.mutation.deleteManyPosts({ where: { title_contains: "" } }, info)
     }
 }
 
@@ -23,7 +26,6 @@ const Subscription = {
             return prisma.subscription.post({ where: { node: { id: args.id } } })
         }
     }
-
 }
 
 module.exports = {

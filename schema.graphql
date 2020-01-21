@@ -3,15 +3,20 @@ type Query {
   posts: [Post!]!
 }
 
+scalar Long 
+
 type Mutation {
   addPost(data: CreatePostInput): Post!
   updatePost(id: ID!, data: CreatePostInput): Post!
   deletePost(id: String!): Post!
+  clearPosts: ClearPayload!
 }
 
 type Subscription {
   post(id: ID!): UserSubscriptionPayload!
 }
+
+
 
 
 #? Types 
@@ -37,4 +42,8 @@ enum MutationType {
 type UserSubscriptionPayload {
   mutation: MutationType!
   node: Post
+}
+
+type ClearPayload {
+  count: Int!
 }
