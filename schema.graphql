@@ -12,11 +12,6 @@ type Mutation {
   clearPosts: ClearPayload!
 }
 
-type Subscription {
-  post(id: ID!): UserSubscriptionPayload!
-}
-
-
 
 
 #? Types 
@@ -31,17 +26,6 @@ type Post {
 input CreatePostInput {
   title: String! 
   body: String!
-}
-
-enum MutationType {
-  CREATED
-  UPDATED 
-  DELETED
-}
-
-type UserSubscriptionPayload {
-  mutation: MutationType!
-  node: Post
 }
 
 type ClearPayload {

@@ -20,16 +20,8 @@ const Mutation = {
     }
 }
 
-const Subscription = {
-    post: {
-        subscribe(parent, args, { prisma }, info) {
-            return prisma.subscription.post({ where: { node: { id: args.id } } })
-        }
-    }
-}
 
 module.exports = {
     Query,
     Mutation,
-    Subscription
 }
